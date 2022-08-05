@@ -1,6 +1,6 @@
-# Wingpanel Template Indicator
+# Wingpanel Caffeine Indicator
 
-<!-- Screenshot here -->
+<img src="https://raw.githubusercontent.com/jdmg94/wingpanel-caffeine/main/assets/screenshot.jpeg" alt="wingpanel caffeine popover with toggle switch off" />
 
 ## Building and Installation
 
@@ -26,4 +26,4 @@ To install, use `ninja install`
 sudo ninja install
 ```
 
-Then run `killall wingpanel` to restart wingpanel.
+Then run `killall io.elementary.wingpanel` to restart wingpanel.
