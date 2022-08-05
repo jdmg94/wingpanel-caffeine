@@ -7,6 +7,7 @@
 You'll need the following dependencies:
 
 ```
+libnotify
 libwingpanel-2.0-dev
 meson
 valac
