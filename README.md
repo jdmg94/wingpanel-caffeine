@@ -1,13 +1,12 @@
-# Wingpanel Template Indicator
+# Wingpanel Caffeine Indicator
 
-<!-- Screenshot here -->
+<img src="https://raw.githubusercontent.com/jdmg94/wingpanel-caffeine/main/assets/screenshot.jpeg" alt="wingpanel caffeine popover with toggle switch off" />
 
 ## Building and Installation
 
 You'll need the following dependencies:
 
 ```
-libnotify
 libwingpanel-2.0-dev
 meson
 valac
@@ -27,4 +26,4 @@ To install, use `ninja install`
 sudo ninja install
 ```
 
-Then run `killall wingpanel` to restart wingpanel.
+Then run `killall io.elementary.wingpanel` to restart wingpanel.
