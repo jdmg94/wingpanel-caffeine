@@ -29,6 +29,7 @@ shared_module(
     'src/Indicator.vala',
     'src/Caffeinate.vala',
     'src/PopOverWidget.vala',
+    'src/RevealerSwitch.vala',
     dependencies: [
         dependency('glib-2.0'),
         dependency('gio-2.0'),
