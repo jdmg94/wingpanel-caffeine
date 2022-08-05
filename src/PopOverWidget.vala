@@ -12,7 +12,7 @@ public class PopOverWidget : Gtk.Box {
       caffeine = new Caffeinate ();
       main_switch = new Granite.SwitchModelButton ("Caffeinate");
       indefinite_switch = new RevealerSwitch ("Indefinite", true, true);
-      invalid_input_alert = new Notify.Notification ("Caffeine", "The timeout can only be in numeric values", "dialog-warning");
+      invalid_input_alert = new Notify.Notification ("Caffeine", "Timeout can only be numeric", "dialog-warning");
       disable_alert = new Notify.Notification ("Decaffeinated", "Caffeine will no longer keep the system awake", "caffeine-cup-empty-symbolic");
 
       bool is_indefinite = true;
@@ -37,9 +37,9 @@ public class PopOverWidget : Gtk.Box {
           if (is_indefinite) {
             caffeine.start ();
           } else if (timeout_entry.is_valid) {
-            var timeout = int.parse (timeout_entry.get_text ());
+            var timeout_in_seconds = int.parse (timeout_entry.get_text ()) * 60;
 
-            caffeine.timed_session (timeout, () => {
+            caffeine.timed_session (timeout_in_seconds, () => {
               main_switch.set_active (false);
 
               try {

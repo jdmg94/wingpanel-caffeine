@@ -41,14 +41,14 @@ public class Caffeinate {
       Posix.system ("xdg-screensaver resume " + this.xid);
     }
 
-    if (timer) {
+    if (timer != null) {
       timer.destroy ();
       timer = null;
     }
   }
 
   public void timed_session (int duration, Callback callback) {
-    timer = new TimeoutSource.seconds (duration * 60); // duration comes in minutes
+    timer = new TimeoutSource.seconds (duration);
 
     timer.set_callback (() => {
       this.stop ();
