@@ -30,7 +30,7 @@ public class Caffeinate {
     this.xid = Caffeinate.get_wingpanel_xid ();
   }
 
-  public void activate () {
+  public void start () {
     this.is_active = true;
     Posix.system ("xdg-screensaver suspend " + this.xid);
   }
@@ -47,7 +47,7 @@ public class Caffeinate {
     }
   }
 
-  public void activateFor (int duration, Callback callback) {
+  public void timed_session (int duration, Callback callback) {
     timer = new TimeoutSource.seconds (duration * 60); // duration comes in minutes
 
     timer.set_callback (() => {
@@ -58,7 +58,7 @@ public class Caffeinate {
     });
 
     timer.attach ();
-    this.activate ();
+    this.start ();
   }
 
 }

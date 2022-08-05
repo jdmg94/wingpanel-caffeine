@@ -35,11 +35,11 @@ public class PopOverWidget : Gtk.Box {
 
         if (nextState.active) {
           if (is_indefinite) {
-            caffeine.activate ();
+            caffeine.start ();
           } else if (timeout_entry.is_valid) {
             var timeout = int.parse (timeout_entry.get_text ());
 
-            caffeine.activateFor (timeout, () => {
+            caffeine.timed_session (timeout, () => {
               main_switch.set_active (false);
 
               try {
@@ -66,7 +66,7 @@ public class PopOverWidget : Gtk.Box {
         }
       });
 
-      disable_alert.set_timeout(3000);
+      disable_alert.set_timeout (3000);
       timeout_entry.set_text ("30");
       timeout_entry.set_alignment (1);
       timeout_entry.set_margin_end (10);
