@@ -41,5 +41,6 @@ public Wingpanel.Indicator ? get_indicator (Module module, Wingpanel.IndicatorMa
     return null;
   }
 
+  Notify.init("dev.josemunoz.wingpanel-caffeine");
   return new Caffeine.Indicator ();
 }

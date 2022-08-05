@@ -1,4 +1,6 @@
 class RevealerSwitch : Gtk.Box {
+  public signal void toggled (bool is_active);
+
   private Gtk.Revealer revealer;
   private Granite.SwitchModelButton main_switch;
 
@@ -12,6 +14,7 @@ class RevealerSwitch : Gtk.Box {
     };
 
     this.main_switch.toggled.connect ((nextState) => {
+      toggled (nextState.active);
       this.revealer.reveal_child = inverted ? !nextState.active : nextState.active;
     });
 
@@ -23,9 +26,7 @@ class RevealerSwitch : Gtk.Box {
   construct {
     orientation = Gtk.Orientation.VERTICAL;
 
-    set_has_window (false);
     show_all ();
-
   }
 
   public new void add (Gtk.Widget child) {

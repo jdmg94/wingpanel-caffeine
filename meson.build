@@ -2,7 +2,7 @@ project(
     'wingpanel-caffeine',
     'vala',
     'c',
-    version : '0.0.1'
+    version : '0.1.0'
 )
 
 i18n = import('i18n')
@@ -12,6 +12,7 @@ add_global_arguments('-DGETTEXT_PACKAGE="@0@"'.format(gettext_name), language:'c
 
 wingpanel_dep = dependency('wingpanel')
 granite_dep = dependency('granite')
+notify_dep = dependency('libnotify')
 posix_dep = meson.get_compiler('vala').find_library('posix')
 
 install_data(
@@ -36,6 +37,7 @@ shared_module(
         dependency('gtk+-3.0'),
         wingpanel_dep,
         granite_dep,
+        notify_dep,
         posix_dep
     ],
     install: true,
