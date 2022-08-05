@@ -1,7 +1,6 @@
 public class Caffeine.Indicator : Wingpanel.Indicator {
-  private Gtk.Box popover_widget;
+  private PopOverWidget popover_widget;
   private Gtk.Image display_widget;
-  private Caffeinate caffeine;
 
   public Indicator () {
     Object (
@@ -9,7 +8,6 @@ public class Caffeine.Indicator : Wingpanel.Indicator {
       );
 
     visible = true;
-    caffeine = new Caffeinate ();
   }
 
   public override Gtk.Widget get_display_widget () {
@@ -22,22 +20,11 @@ public class Caffeine.Indicator : Wingpanel.Indicator {
 
   public override Gtk.Widget ? get_widget () {
     if (popover_widget == null) {
-      popover_widget = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+      popover_widget = new PopOverWidget ();
 
-      var main_switch = new Granite.SwitchModelButton ("Caffeinate");
-      main_switch.get_style_context ().add_class (Granite.STYLE_CLASS_H4_LABEL);
-      main_switch.toggled.connect ((nextState) => {
-        if (nextState.active) {
-          display_widget.icon_name = "caffeine-cup-full-symbolic";
-          caffeine.activate ();
-
-        } else {
-          display_widget.icon_name = "caffeine-cup-empty-symbolic";
-          caffeine.stop ();
-        }
+      popover_widget.toggle_caffeine.connect ((is_active) => {
+        display_widget.icon_name = is_active ? "caffeine-cup-full-symbolic" : "caffeine-cup-empty-symbolic";
       });
-
-      popover_widget.add (main_switch);
     }
 
     return popover_widget;
@@ -54,5 +41,6 @@ public Wingpanel.Indicator ? get_indicator (Module module, Wingpanel.IndicatorMa
     return null;
   }
 
+  Notify.init("dev.josemunoz.wingpanel-caffeine");
   return new Caffeine.Indicator ();
 }
