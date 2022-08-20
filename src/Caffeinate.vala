@@ -48,7 +48,7 @@ public class Caffeinate {
   }
 
   public void timed_session (int duration, Callback callback) {
-    timer = new TimeoutSource.seconds (duration);
+    timer = new TimeoutSource (duration);
 
     timer.set_callback (() => {
       this.stop ();
