@@ -43,7 +43,7 @@ Then run `killall io.elementary.wingpanel` to restart wingpanel.
 
 ## Generating a .deb Package
 
-remember to edit the filed generated through `dh_make`
+remember to edit the files generated through `dh_make`
 
 ```
  dh_make --createorig -p wingpanel-caffeine_<version> 
