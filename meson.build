@@ -2,10 +2,11 @@ project(
     'wingpanel-caffeine',
     'vala',
     'c',
-    version : '0.1.1'
+    version : '0.2.0'
 )
 
 i18n = import('i18n')
+app_id = 'dev.josemunoz.wingpanel-caffeine'
 gettext_name = meson.project_name() + '-indicator'
 
 add_global_arguments('-DGETTEXT_PACKAGE="@0@"'.format(gettext_name), language:'c')
@@ -29,6 +30,7 @@ shared_module(
     meson.project_name(),
     'src/Indicator.vala',
     'src/Caffeinate.vala',
+    'src/TimeOptions.vala',
     'src/PopOverWidget.vala',
     'src/RevealerSwitch.vala',
     dependencies: [
