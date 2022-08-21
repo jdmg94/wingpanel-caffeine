@@ -8,7 +8,7 @@ public class PopOverWidget : Gtk.Box {
 
   public PopOverWidget () {
     bool is_indefinite = true;
-    Gtk.Label timeout_label = new Gtk.Label ("Timeout:");
+    Gtk.Label timeout_label = new Gtk.Label ("Timeout");
     Gtk.Box container = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
     TimeOptions.ComboBox time_options_combobox = new TimeOptions.ComboBox ();
 
@@ -22,7 +22,8 @@ public class PopOverWidget : Gtk.Box {
       "caffeine-cup-empty-symbolic"
       );
 
-    container.set_margin_top (4);
+    container.set_margin_top (5);
+    container.set_margin_bottom (3);
     disable_alert.set_timeout (3000);
     timeout_label.set_padding (10, 0);
     indefinite_switch.add (container);
