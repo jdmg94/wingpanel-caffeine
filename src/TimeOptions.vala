@@ -6,6 +6,10 @@ namespace TimeOptions {
     return minutes * one_minute;
   }
 
+  private int hours_to_milis(int hours) {
+    return minutes_to_milis(hours * 60);
+  }
+
   private class Value {
     public string label;
     public int timeout;
@@ -29,9 +33,10 @@ namespace TimeOptions {
       TimeOptions.Value[] options = {
         new TimeOptions.Value ("30 Minutes", minutes_to_milis (30)),
         new TimeOptions.Value ("1 Hour", minutes_to_milis (60)),
-        new TimeOptions.Value ("2 Hours", minutes_to_milis (120)),
-        new TimeOptions.Value ("4 Hours", minutes_to_milis (240)),
-        new TimeOptions.Value ("5 Hours", minutes_to_milis (300)),
+        new TimeOptions.Value ("2 Hours", hours_to_milis (2)),
+        new TimeOptions.Value ("4 Hours", hours_to_milis (4)),
+        new TimeOptions.Value ("5 Hours", hours_to_milis (5)),
+        new TimeOptions.Value ("8 Hours", hours_to_milis (8)),
       };
 
       foreach (TimeOptions.Value item in options) {
