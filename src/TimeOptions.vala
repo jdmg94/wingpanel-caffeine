@@ -18,20 +18,21 @@ namespace TimeOptions {
   }
 
   public class ComboBox : Gtk.ComboBox {
-    private Gtk.ListStore data;
-    private TimeOptions.Value[] options = {
-      new TimeOptions.Value ("30 Minutes", minutes_to_milis (30)),
-      new TimeOptions.Value ("1 Hour", minutes_to_milis (60)),
-      new TimeOptions.Value ("2 Hours", minutes_to_milis (120)),
-      new TimeOptions.Value ("4 Hours", minutes_to_milis (240)),
-      new TimeOptions.Value ("5 Hours", minutes_to_milis (300)),
-    };
+    private Gtk.ListStore data;    
 
     public ComboBox () {
       Gtk.TreeIter iterator;
       Gtk.CellRendererText renderer = new Gtk.CellRendererText ();
 
       this.data = new Gtk.ListStore (2, typeof (string), typeof (int));
+
+      TimeOptions.Value[] options = {
+        new TimeOptions.Value ("30 Minutes", minutes_to_milis (30)),
+        new TimeOptions.Value ("1 Hour", minutes_to_milis (60)),
+        new TimeOptions.Value ("2 Hours", minutes_to_milis (120)),
+        new TimeOptions.Value ("4 Hours", minutes_to_milis (240)),
+        new TimeOptions.Value ("5 Hours", minutes_to_milis (300)),
+      };
 
       foreach (TimeOptions.Value item in options) {
         data.append (out iterator);
