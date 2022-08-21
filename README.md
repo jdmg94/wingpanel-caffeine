@@ -4,9 +4,23 @@
 
 ## Installation 
 
-I'm working on setting up an apt repository, in the mean time please download [the latest .deb package](https://github.com/jdmg94/wingpanel-caffeine/releases/)
+You can install the PPA Repository by running the lines below:
 
-You can install by running:
+```
+curl -s --compressed "https://jdmg94.github.io/ppa/ubuntu/KEY.gpg" | sudo apt-key add -
+sudo curl -s --compressed -o /etc/apt/sources.list.d/josemunozdev.list "https://jdmg94.github.io/ppa/ubuntu/josemunozdev.list"
+```
+
+After that you should be able to update and install `wingpanel-caffeine` as regular package:
+
+```
+sudo apt update
+sudo apt install wingpanel-caffeine
+```
+
+### Installing as .DEB package
+
+Please download [the latest .deb package](https://github.com/jdmg94/wingpanel-caffeine/releases/) you can install by running:
 
 ```
   sudo dpkg -i wingpanel-caffeine_<version>_amd64.deb
